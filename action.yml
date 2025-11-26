@@ -1,0 +1,25 @@
+name: 'AWS Firehose Send Message'
+description: 'Send records to AWS Kinesis Data Firehose delivery streams'
+author: 'predictr-io'
+
+branding:
+  icon: 'send'
+  color: 'orange'
+
+inputs:
+  # Required parameters
+  stream-name:
+    description: 'Firehose delivery stream name'
+    required: true
+
+  data:
+    description: 'Data to send (string, max 1000 KB)'
+    required: true
+
+outputs:
+  record-id:
+    description: 'Unique identifier assigned to the record by Firehose'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
